@@ -197,7 +197,7 @@ export default function NutritionSection() {
           <Card className="bg-card border-border/50">
             <CardHeader className="pb-2">
               <CardTitle className="text-base font-semibold">Bảng Calo Thực Phẩm</CardTitle>
-              <p className="text-xs text-muted-foreground">Per 100g (trừ Whey & Creatine)</p>
+              <p className="text-xs text-muted-foreground">Per 100g (trừ Whey, Creatine & Trứng)</p>
             </CardHeader>
             <CardContent className="space-y-2">
               {FOOD_DATABASE.map((food, i) => (

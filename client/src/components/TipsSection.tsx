@@ -84,13 +84,13 @@ export default function TipsSection() {
               <div className="space-y-4">
                 {[
                   { time: '5:30', label: 'Thức dậy', desc: 'Uống 500ml nước, cân nặng', icon: '🌅', color: 'bg-amber-accent/20 text-amber-accent' },
-                  { time: '6:00', label: 'Bữa sáng', desc: 'Whey + Khoai lang + Hạt chia + Ổi', icon: '🍳', color: 'bg-lime/20 text-lime' },
+                  { time: '6:00', label: 'Bữa sáng', desc: '1 trứng luộc + 3 lòng trắng + Khoai lang + Hạt chia + Ổi', icon: '🍳', color: 'bg-lime/20 text-lime' },
                   { time: '8:00', label: 'Đi làm', desc: 'Mang theo bữa trưa đã chuẩn bị', icon: '💼', color: 'bg-chart-5/20 text-chart-5' },
-                  { time: '12:00', label: 'Bữa trưa', desc: 'Ức gà 200g + Khoai lang + Dưa leo', icon: '🍗', color: 'bg-lime/20 text-lime' },
-                  { time: '16:00', label: 'Pre-workout', desc: 'Ức gà 100g + Dưa leo + Creatine 5g', icon: '⚡', color: 'bg-amber-accent/20 text-amber-accent' },
+                  { time: '12:00', label: 'Bữa trưa', desc: 'Ức gà 200g + Khoai lang + Dưa leo + Cà chua', icon: '🍗', color: 'bg-lime/20 text-lime' },
+                  { time: '16:00', label: 'Pre-workout', desc: 'Ức gà 100g + Dưa leo + Cà chua + Creatine 5g', icon: '⚡', color: 'bg-amber-accent/20 text-amber-accent' },
                   { time: '17:30', label: 'Tan làm → Gym', desc: 'Đến phòng gym, warm-up', icon: '🏋️', color: 'bg-lime/20 text-lime' },
                   { time: '18:00', label: 'Tập luyện', desc: '60-75 phút tập nặng + Cardio', icon: '💪', color: 'bg-rose-accent/20 text-rose-accent' },
-                  { time: '19:00', label: 'Post-workout', desc: 'Whey + Ức gà + Khoai lang + Dưa leo', icon: '🥤', color: 'bg-lime/20 text-lime' },
+                  { time: '19:00', label: 'Post-workout', desc: 'Whey + Ức gà + Khoai lang + Dưa leo + Cà chua', icon: '🥤', color: 'bg-lime/20 text-lime' },
                   { time: '21:00', label: 'Thư giãn', desc: 'Stretching nhẹ, foam rolling', icon: '🧘', color: 'bg-chart-5/20 text-chart-5' },
                   { time: '22:00', label: 'Đi ngủ', desc: 'Ngủ đủ 7-8 tiếng', icon: '😴', color: 'bg-muted text-muted-foreground' },
                 ].map((item, i) => (
@@ -130,7 +130,7 @@ export default function TipsSection() {
                 'Ăn đúng 4 bữa theo plan',
                 'Tập luyện theo lịch',
                 'Cardio sau tập',
-                'Uống 2 scoop Whey (sáng + sau tập)',
+                'Uống 1 scoop Whey (sau tập)',
                 'Uống 5g Creatine (trước tập)',
                 'Ngủ đủ 7-8 tiếng',
                 'Ghi nhận tiến trình trên web',

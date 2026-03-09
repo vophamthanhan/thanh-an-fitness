@@ -9,6 +9,7 @@ export interface Exercise {
   reps: string;
   technique?: string;
   note?: string;
+  restSeconds?: number;
 }
 
 export interface WorkoutDay {
@@ -56,7 +57,7 @@ export const PROFILE = {
   bmi: 35.8,
   bmr: 1915,
   tdee: 3303,
-  targetCalories: 1600,
+  targetCalories: 1584,
   duration: 30,
   experience: '4 năm (2019-2023)',
   techniques: ['Dropset', 'Superset', 'FST-7'],
@@ -65,10 +66,10 @@ export const PROFILE = {
 };
 
 export const MACROS = {
-  protein: { grams: 197, calories: 788, percentage: 49 },
-  carbs: { grams: 113, calories: 452, percentage: 28 },
-  fat: { grams: 22, calories: 198, percentage: 12 },
-  total: 1535,
+  protein: { grams: 199, calories: 796, percentage: 50 },
+  carbs: { grams: 128, calories: 512, percentage: 32 },
+  fat: { grams: 30, calories: 266, percentage: 17 },
+  total: 1584,
 };
 
 export const FOOD_DATABASE = [
@@ -77,6 +78,9 @@ export const FOOD_DATABASE = [
   { name: 'Hạt chia', caloriesPer100g: 486, protein: 17, carbs: 42, fat: 31, icon: '🌰' },
   { name: 'Dưa leo', caloriesPer100g: 15, protein: 0.7, carbs: 3.6, fat: 0.1, icon: '🥒' },
   { name: 'Ổi', caloriesPer100g: 68, protein: 2.6, carbs: 14, fat: 1, icon: '🍈' },
+  { name: 'Trứng luộc (1 quả)', caloriesPer100g: 155, protein: 13, carbs: 1.1, fat: 11, icon: '🥚' },
+  { name: 'Lòng trắng trứng', caloriesPer100g: 52, protein: 11, carbs: 0.7, fat: 0.2, icon: '🍳' },
+  { name: 'Cà chua', caloriesPer100g: 18, protein: 0.9, carbs: 3.9, fat: 0.2, icon: '🍅' },
   { name: 'Whey Isolate (1 scoop)', caloriesPer100g: 400, protein: 83, carbs: 6.7, fat: 1.7, icon: '🥤' },
   { name: 'Creatine (5g)', caloriesPer100g: 0, protein: 0, carbs: 0, fat: 0, icon: '💊' },
 ];
@@ -86,15 +90,16 @@ export const DAILY_MEALS: Meal[] = [
     name: 'Bữa Sáng',
     time: '6:00 - 6:30',
     foods: [
-      { item: 'Whey Protein Isolate', amount: '1 scoop (30g)', calories: 120, protein: 25, carbs: 2, fat: 0.5 },
+      { item: 'Trứng luộc nguyên quả', amount: '1 quả (50g)', calories: 78, protein: 6.5, carbs: 0.6, fat: 5.5 },
+      { item: 'Lòng trắng trứng', amount: '3 quả (~100g)', calories: 52, protein: 11, carbs: 0.7, fat: 0.2 },
       { item: 'Khoai lang luộc', amount: '150g', calories: 129, protein: 2.4, carbs: 30, fat: 0.2 },
       { item: 'Hạt chia ngâm', amount: '15g', calories: 73, protein: 2.5, carbs: 6.3, fat: 4.7 },
       { item: 'Ổi', amount: '1 quả (100g)', calories: 68, protein: 2.6, carbs: 14, fat: 1 },
     ],
-    totalCalories: 390,
-    totalProtein: 32.5,
-    totalCarbs: 52.3,
-    totalFat: 6.4,
+    totalCalories: 400,
+    totalProtein: 25,
+    totalCarbs: 51.6,
+    totalFat: 11.6,
   },
   {
     name: 'Bữa Trưa',
@@ -102,12 +107,13 @@ export const DAILY_MEALS: Meal[] = [
     foods: [
       { item: 'Ức gà nấu', amount: '200g', calories: 330, protein: 62, carbs: 0, fat: 7.2 },
       { item: 'Khoai lang luộc', amount: '150g', calories: 129, protein: 2.4, carbs: 30, fat: 0.2 },
-      { item: 'Dưa leo', amount: '200g', calories: 30, protein: 1.4, carbs: 7.2, fat: 0.2 },
+      { item: 'Dưa leo', amount: '150g', calories: 22, protein: 1.1, carbs: 5.4, fat: 0.2 },
+      { item: 'Cà chua', amount: '100g', calories: 18, protein: 0.9, carbs: 3.9, fat: 0.2 },
     ],
-    totalCalories: 489,
-    totalProtein: 65.8,
-    totalCarbs: 37.2,
-    totalFat: 7.6,
+    totalCalories: 499,
+    totalProtein: 66.4,
+    totalCarbs: 39.3,
+    totalFat: 7.8,
   },
   {
     name: 'Bữa Chiều (Pre-workout)',
@@ -115,12 +121,13 @@ export const DAILY_MEALS: Meal[] = [
     foods: [
       { item: 'Ức gà', amount: '100g', calories: 165, protein: 31, carbs: 0, fat: 3.6 },
       { item: 'Dưa leo', amount: '100g', calories: 15, protein: 0.7, carbs: 3.6, fat: 0.1 },
+      { item: 'Cà chua', amount: '100g', calories: 18, protein: 0.9, carbs: 3.9, fat: 0.2 },
       { item: 'Creatine', amount: '5g', calories: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    totalCalories: 180,
-    totalProtein: 31.7,
-    totalCarbs: 3.6,
-    totalFat: 3.7,
+    totalCalories: 198,
+    totalProtein: 32.6,
+    totalCarbs: 7.5,
+    totalFat: 3.9,
   },
   {
     name: 'Bữa Tối (Post-workout)',
@@ -129,126 +136,127 @@ export const DAILY_MEALS: Meal[] = [
       { item: 'Whey Protein Isolate', amount: '1 scoop (30g)', calories: 120, protein: 25, carbs: 2, fat: 0.5 },
       { item: 'Ức gà', amount: '150g', calories: 248, protein: 46.5, carbs: 0, fat: 5.4 },
       { item: 'Khoai lang', amount: '100g', calories: 86, protein: 1.6, carbs: 20, fat: 0.1 },
-      { item: 'Dưa leo', amount: '150g', calories: 22, protein: 1.1, carbs: 5.4, fat: 0.2 },
+      { item: 'Dưa leo', amount: '100g', calories: 15, protein: 0.7, carbs: 3.6, fat: 0.1 },
+      { item: 'Cà chua', amount: '100g', calories: 18, protein: 0.9, carbs: 3.9, fat: 0.2 },
     ],
-    totalCalories: 476,
-    totalProtein: 74.2,
-    totalCarbs: 27.4,
-    totalFat: 6.2,
+    totalCalories: 487,
+    totalProtein: 74.7,
+    totalCarbs: 29.5,
+    totalFat: 6.3,
   },
 ];
 
 // Week 1-2: Re-adaptation Phase
 const PUSH_A_W12: Exercise[] = [
-  { name: 'Bench Press', sets: '4', reps: '12', note: '60-70% 1RM' },
-  { name: 'Incline Dumbbell Press', sets: '3', reps: '12' },
-  { name: 'Cable Flyes', sets: '3', reps: '15' },
-  { name: 'Overhead Press', sets: '4', reps: '12' },
-  { name: 'Lateral Raises', sets: '3', reps: '15' },
-  { name: 'Tricep Pushdown', sets: '3', reps: '15' },
-  { name: 'Overhead Tricep Extension', sets: '3', reps: '12' },
+  { name: 'Bench Press', sets: '4', reps: '12', note: '60-70% 1RM', restSeconds: 90 },
+  { name: 'Incline Dumbbell Press', sets: '3', reps: '12', restSeconds: 75 },
+  { name: 'Cable Flyes', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Overhead Press', sets: '4', reps: '12', restSeconds: 90 },
+  { name: 'Lateral Raises', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Tricep Pushdown', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Overhead Tricep Extension', sets: '3', reps: '12', restSeconds: 60 },
 ];
 
 const PULL_A_W12: Exercise[] = [
-  { name: 'Lat Pulldown', sets: '4', reps: '12' },
-  { name: 'Seated Cable Row', sets: '4', reps: '12' },
-  { name: 'Dumbbell Row', sets: '3', reps: '12/tay' },
-  { name: 'Face Pulls', sets: '3', reps: '15' },
-  { name: 'Barbell Curl', sets: '3', reps: '12' },
-  { name: 'Hammer Curl', sets: '3', reps: '12' },
+  { name: 'Lat Pulldown', sets: '4', reps: '12', restSeconds: 75 },
+  { name: 'Seated Cable Row', sets: '4', reps: '12', restSeconds: 75 },
+  { name: 'Dumbbell Row', sets: '3', reps: '12/tay', restSeconds: 75 },
+  { name: 'Face Pulls', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Barbell Curl', sets: '3', reps: '12', restSeconds: 60 },
+  { name: 'Hammer Curl', sets: '3', reps: '12', restSeconds: 60 },
 ];
 
 const LEGS_A_W12: Exercise[] = [
-  { name: 'Leg Press', sets: '4', reps: '15' },
-  { name: 'Goblet Squat', sets: '3', reps: '12' },
-  { name: 'Romanian Deadlift', sets: '4', reps: '12' },
-  { name: 'Leg Curl', sets: '3', reps: '15' },
-  { name: 'Leg Extension', sets: '3', reps: '15' },
-  { name: 'Calf Raises', sets: '4', reps: '15' },
+  { name: 'Leg Press', sets: '4', reps: '15', restSeconds: 90 },
+  { name: 'Goblet Squat', sets: '3', reps: '12', restSeconds: 75 },
+  { name: 'Romanian Deadlift', sets: '4', reps: '12', restSeconds: 90 },
+  { name: 'Leg Curl', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Leg Extension', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Calf Raises', sets: '4', reps: '15', restSeconds: 60 },
 ];
 
 const PUSH_B_W12: Exercise[] = [
-  { name: 'Dumbbell Bench Press', sets: '4', reps: '12' },
-  { name: 'Machine Chest Press', sets: '3', reps: '12' },
-  { name: 'Pec Deck', sets: '3', reps: '15' },
-  { name: 'Arnold Press', sets: '4', reps: '12' },
-  { name: 'Front Raises', sets: '3', reps: '12' },
-  { name: 'Dips (Assisted)', sets: '3', reps: '10-12' },
-  { name: 'Skull Crushers', sets: '3', reps: '12' },
+  { name: 'Dumbbell Bench Press', sets: '4', reps: '12', restSeconds: 90 },
+  { name: 'Machine Chest Press', sets: '3', reps: '12', restSeconds: 75 },
+  { name: 'Pec Deck', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Arnold Press', sets: '4', reps: '12', restSeconds: 90 },
+  { name: 'Front Raises', sets: '3', reps: '12', restSeconds: 60 },
+  { name: 'Dips (Assisted)', sets: '3', reps: '10-12', restSeconds: 75 },
+  { name: 'Skull Crushers', sets: '3', reps: '12', restSeconds: 60 },
 ];
 
 const PULL_B_W12: Exercise[] = [
-  { name: 'Deadlift', sets: '4', reps: '10' },
-  { name: 'Pull-ups (Assisted)', sets: '3', reps: '8-10' },
-  { name: 'T-Bar Row', sets: '4', reps: '12' },
-  { name: 'Cable Pullover', sets: '3', reps: '12' },
-  { name: 'Reverse Flyes', sets: '3', reps: '15' },
-  { name: 'Preacher Curl', sets: '3', reps: '12' },
-  { name: 'Cable Curl', sets: '3', reps: '12' },
+  { name: 'Deadlift', sets: '4', reps: '10', restSeconds: 120 },
+  { name: 'Pull-ups (Assisted)', sets: '3', reps: '8-10', restSeconds: 90 },
+  { name: 'T-Bar Row', sets: '4', reps: '12', restSeconds: 75 },
+  { name: 'Cable Pullover', sets: '3', reps: '12', restSeconds: 60 },
+  { name: 'Reverse Flyes', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Preacher Curl', sets: '3', reps: '12', restSeconds: 60 },
+  { name: 'Cable Curl', sets: '3', reps: '12', restSeconds: 60 },
 ];
 
 const LEGS_B_W12: Exercise[] = [
-  { name: 'Barbell Squat', sets: '4', reps: '12' },
-  { name: 'Walking Lunges', sets: '3', reps: '12/chân' },
-  { name: 'Leg Press (Narrow)', sets: '3', reps: '15' },
-  { name: 'Seated Leg Curl', sets: '3', reps: '15' },
-  { name: 'Hip Thrust', sets: '4', reps: '12' },
-  { name: 'Plank', sets: '3', reps: '45 giây' },
-  { name: 'Cable Crunch', sets: '3', reps: '15' },
-  { name: 'Russian Twist', sets: '3', reps: '20' },
+  { name: 'Barbell Squat', sets: '4', reps: '12', restSeconds: 90 },
+  { name: 'Walking Lunges', sets: '3', reps: '12/chân', restSeconds: 75 },
+  { name: 'Leg Press (Narrow)', sets: '3', reps: '15', restSeconds: 75 },
+  { name: 'Seated Leg Curl', sets: '3', reps: '15', restSeconds: 60 },
+  { name: 'Hip Thrust', sets: '4', reps: '12', restSeconds: 75 },
+  { name: 'Plank', sets: '3', reps: '45 giây', restSeconds: 45 },
+  { name: 'Cable Crunch', sets: '3', reps: '15', restSeconds: 45 },
+  { name: 'Russian Twist', sets: '3', reps: '20', restSeconds: 45 },
 ];
 
 // Week 3-4: Intensification Phase
 const PUSH_A_W34: Exercise[] = [
-  { name: 'Bench Press', sets: '4', reps: '10', note: '70-80% 1RM' },
-  { name: 'Incline DB Press + Cable Flyes', sets: '4', reps: '10+12', technique: 'SUPERSET' },
-  { name: 'OHP + Lateral Raises', sets: '4', reps: '10+15', technique: 'SUPERSET' },
-  { name: 'Tricep Pushdown', sets: '3', reps: '12/10/8', technique: 'DROPSET' },
-  { name: 'Cable Lateral Raises', sets: '7', reps: '12 (rest 30s)', technique: 'FST-7' },
+  { name: 'Bench Press', sets: '4', reps: '10', note: '70-80% 1RM', restSeconds: 90 },
+  { name: 'Incline DB Press + Cable Flyes', sets: '4', reps: '10+12', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'OHP + Lateral Raises', sets: '4', reps: '10+15', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Tricep Pushdown', sets: '3', reps: '12/10/8', technique: 'DROPSET', restSeconds: 0 },
+  { name: 'Cable Lateral Raises', sets: '7', reps: '12', technique: 'FST-7', restSeconds: 30 },
 ];
 
 const PULL_A_W34: Exercise[] = [
-  { name: 'Barbell Row', sets: '4', reps: '10' },
-  { name: 'Lat Pulldown + Straight Arm Pulldown', sets: '4', reps: '10+12', technique: 'SUPERSET' },
-  { name: 'Seated Row + Face Pulls', sets: '4', reps: '10+15', technique: 'SUPERSET' },
-  { name: 'Barbell Curl', sets: '3', reps: '10/8/6', technique: 'DROPSET' },
-  { name: 'Cable Curl', sets: '7', reps: '12 (rest 30s)', technique: 'FST-7' },
+  { name: 'Barbell Row', sets: '4', reps: '10', restSeconds: 90 },
+  { name: 'Lat Pulldown + Straight Arm Pulldown', sets: '4', reps: '10+12', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Seated Row + Face Pulls', sets: '4', reps: '10+15', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Barbell Curl', sets: '3', reps: '10/8/6', technique: 'DROPSET', restSeconds: 0 },
+  { name: 'Cable Curl', sets: '7', reps: '12', technique: 'FST-7', restSeconds: 30 },
 ];
 
 const LEGS_A_W34: Exercise[] = [
-  { name: 'Barbell Squat', sets: '5', reps: '8' },
-  { name: 'Leg Press + Jump Squats', sets: '4', reps: '10+10', technique: 'SUPERSET' },
-  { name: 'Romanian Deadlift', sets: '4', reps: '10' },
-  { name: 'Leg Curl + Leg Extension', sets: '4', reps: '12+12', technique: 'SUPERSET' },
-  { name: 'Calf Raises', sets: '3', reps: '15/12/10', technique: 'DROPSET' },
-  { name: 'Leg Extension', sets: '7', reps: '12 (rest 30s)', technique: 'FST-7' },
+  { name: 'Barbell Squat', sets: '5', reps: '8', restSeconds: 120 },
+  { name: 'Leg Press + Jump Squats', sets: '4', reps: '10+10', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Romanian Deadlift', sets: '4', reps: '10', restSeconds: 90 },
+  { name: 'Leg Curl + Leg Extension', sets: '4', reps: '12+12', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Calf Raises', sets: '3', reps: '15/12/10', technique: 'DROPSET', restSeconds: 0 },
+  { name: 'Leg Extension', sets: '7', reps: '12', technique: 'FST-7', restSeconds: 30 },
 ];
 
 const PUSH_B_W34: Exercise[] = [
-  { name: 'Incline Barbell Press', sets: '4', reps: '10' },
-  { name: 'Flat DB Press + Push-ups', sets: '4', reps: '10+max', technique: 'SUPERSET' },
-  { name: 'Arnold Press + Rear Delt Flyes', sets: '4', reps: '10+15', technique: 'SUPERSET' },
-  { name: 'Dips', sets: '3', reps: 'max/max-2/max-4', technique: 'DROPSET' },
-  { name: 'Tricep Pushdown', sets: '7', reps: '12 (rest 30s)', technique: 'FST-7' },
+  { name: 'Incline Barbell Press', sets: '4', reps: '10', restSeconds: 90 },
+  { name: 'Flat DB Press + Push-ups', sets: '4', reps: '10+max', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Arnold Press + Rear Delt Flyes', sets: '4', reps: '10+15', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Dips', sets: '3', reps: 'max/max-2/max-4', technique: 'DROPSET', restSeconds: 0 },
+  { name: 'Tricep Pushdown', sets: '7', reps: '12', technique: 'FST-7', restSeconds: 30 },
 ];
 
 const PULL_B_W34: Exercise[] = [
-  { name: 'Deadlift', sets: '5', reps: '6-8' },
-  { name: 'Weighted Pull-ups + DB Row', sets: '4', reps: '8+10', technique: 'SUPERSET' },
-  { name: 'Cable Row + Reverse Flyes', sets: '4', reps: '10+15', technique: 'SUPERSET' },
-  { name: 'Preacher Curl', sets: '3', reps: '10/8/6', technique: 'DROPSET' },
-  { name: 'Hammer Curl', sets: '7', reps: '12 (rest 30s)', technique: 'FST-7' },
+  { name: 'Deadlift', sets: '5', reps: '6-8', restSeconds: 150 },
+  { name: 'Weighted Pull-ups + DB Row', sets: '4', reps: '8+10', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Cable Row + Reverse Flyes', sets: '4', reps: '10+15', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Preacher Curl', sets: '3', reps: '10/8/6', technique: 'DROPSET', restSeconds: 0 },
+  { name: 'Hammer Curl', sets: '7', reps: '12', technique: 'FST-7', restSeconds: 30 },
 ];
 
 const LEGS_B_W34: Exercise[] = [
-  { name: 'Front Squat', sets: '4', reps: '10' },
-  { name: 'Walking Lunges + Box Jumps', sets: '4', reps: '12+10', technique: 'SUPERSET' },
-  { name: 'Hip Thrust + Glute Bridge', sets: '4', reps: '12+15', technique: 'SUPERSET' },
-  { name: 'Leg Curl', sets: '4', reps: '12' },
-  { name: 'Plank', sets: '3', reps: '60 giây', technique: 'CIRCUIT' },
-  { name: 'Mountain Climbers', sets: '3', reps: '20', technique: 'CIRCUIT' },
-  { name: 'Bicycle Crunch', sets: '3', reps: '20', technique: 'CIRCUIT' },
-  { name: 'Leg Raises', sets: '3', reps: '15', technique: 'CIRCUIT' },
+  { name: 'Front Squat', sets: '4', reps: '10', restSeconds: 90 },
+  { name: 'Walking Lunges + Box Jumps', sets: '4', reps: '12+10', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Hip Thrust + Glute Bridge', sets: '4', reps: '12+15', technique: 'SUPERSET', restSeconds: 60 },
+  { name: 'Leg Curl', sets: '4', reps: '12', restSeconds: 60 },
+  { name: 'Plank', sets: '3', reps: '60 giây', technique: 'CIRCUIT', restSeconds: 30 },
+  { name: 'Mountain Climbers', sets: '3', reps: '20', technique: 'CIRCUIT', restSeconds: 30 },
+  { name: 'Bicycle Crunch', sets: '3', reps: '20', technique: 'CIRCUIT', restSeconds: 30 },
+  { name: 'Leg Raises', sets: '3', reps: '15', technique: 'CIRCUIT', restSeconds: 30 },
 ];
 
 export function getWeekWorkouts(week: number): WorkoutDay[] {
@@ -354,7 +362,6 @@ export const TIPS = [
 ];
 
 export const SUPPLEMENT_SCHEDULE = [
-  { time: 'Sáng (6:00)', items: ['1 scoop Whey Protein Isolate + nước'] },
   { time: 'Trước tập (16:00)', items: ['5g Creatine + nước'] },
   { time: 'Sau tập (19:00)', items: ['1 scoop Whey Protein Isolate + nước'] },
 ];

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getWeekWorkouts } from '@/lib/fitnessData';
-import { Dumbbell, Timer, Flame, ChevronRight, Zap } from 'lucide-react';
+import { Dumbbell, Timer, Flame, ChevronRight, Zap, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const WORKOUT_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663416164558/VpCHskgJNkB6UZuHWsQZYc/workout-card-TNXKrb4sWgJFnPrQH68A2h.webp';
@@ -145,8 +145,14 @@ export default function WorkoutSection() {
                                         </div>
                                         {ex.note && <span className="text-xs text-muted-foreground">{ex.note}</span>}
                                       </div>
-                                      <div className="text-right flex-shrink-0">
+                                      <div className="text-right flex-shrink-0 flex items-center gap-3">
                                         <span className="stat-number text-sm text-foreground">{ex.sets}×{ex.reps}</span>
+                                        {ex.restSeconds !== undefined && (
+                                          <span className="flex items-center gap-1 text-xs text-muted-foreground min-w-[50px] justify-end">
+                                            <Clock className="w-3 h-3" />
+                                            {ex.restSeconds === 0 ? 'No rest' : `${ex.restSeconds}s`}
+                                          </span>
+                                        )}
                                       </div>
                                     </div>
                                   ))}
